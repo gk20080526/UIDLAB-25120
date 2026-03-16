@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>gayathri Shopping</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:lightyellow;
+}
+
+.header{
+background:lightcoral;
+color:white;
+text-align:center;
+padding:15px;
+font-size:22px;
+}
+
+.sale{
+background:lemonchiffon;
+text-align:center;
+padding:10px;
+font-weight:bold;
+}
+
+.container{
+display:flex;
+padding:8px;
+}
+
+.sidebar{
+width:200px;
+background:mistyrose;
+padding:10px;
+border-radius:8px;
+}
+
+.sidebar button{
+width:100%;
+padding:8px;
+margin:4px 0;
+border:none;
+background:lightpink;
+cursor:pointer;
+}
+
+.products{
+flex:1;
+display:grid;
+grid-template-columns:repeat(3,1fr); /* 3 items per row */
+gap:10px; /* reduced gap */
+padding:5px;
+}
+
+.card{
+background:lightgoldenrodyellow;
+padding:10px;
+text-align:center;
+border-radius:6px;
+}
+
+.card img{
+width:100%;
+height:120px; /* smaller height */
+object-fit:cover;
+}
+
+.price{
+color:indianred;
+font-weight:bold;
+}
+
+.card button{
+background:salmon;
+color:white;
+border:none;
+padding:6px 12px;
+margin-top:6px;
+cursor:pointer;
+}
+
+.footer{
+background:salmon;
+color:white;
+text-align:center;
+padding:10px;
+margin-top:8px;
+}
+</style>
+
+<script>
+function showCategory(category){
+let products=document.querySelectorAll(".card");
+products.forEach(function(product){
+if(category=="all"){
+product.style.display="block";
+}
+else if(product.classList.contains(category)){
+product.style.display="block";
+}
+else{
+product.style.display="none";
+}
+});
+}
+</script>
+</head>
+
+<body>
+
+<div class="header">
+Hasinishekhar SPA Shopping
+</div>
+
+<div class="sale">
+  Ugadi Special Sale – Up to 70% Off 
+</div>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Categories</h3>
+<button onclick="showCategory('viewitems')">View Items</button>
+<button onclick="showCategory('furniture')">Furniture</button>
+<button onclick="showCategory('clothing')">Clothing</button>
+<button onclick="showCategory('appliances')">Home Appliances</button>
+<button onclick="showCategory('stationary')">Stationary</button>
+<button onclick="showCategory('groceries')">Groceries</button>
+<button onclick="showCategory('beauty')">Beauty Products</button>
+<button onclick="showCategory('all')">Show All</button>
+</div>
+
+<div class="products">
+
+<!-- View Items (first category, highlights) -->
+<div class="card viewitems">
+<img src="sofa2.html">
+<h3>Furniture</h3>
+<p class="price">55000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card viewitems">
+<img src="t shirt .html">
+<h3>Clothing</h3>
+<p class="price">700/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card viewitems">
+<img src="washing machine.html">
+<h3>Appliances</h3>
+<p class="price">12000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card viewitems">
+<img src="stationary.html">
+<h3>Stationary</h3>
+<p class="price">120/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card viewitems">
+<img src="vegitables.html">
+<h3>Groceries</h3>
+<p class="price">180/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card viewitems">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+<h3>Beauty</h3>
+<p class="price">800/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Furniture -->
+<div class="card furniture">
+<img src="sofa2.html">
+<h3>Sofa Set</h3>
+<p class="price">55000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card furniture">
+<img src="bed.html">
+<h3>Wooden Bed</h3>
+<p class="price">30000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card furniture">
+<img src="table.html">
+<h3>Dining Table</h3>
+<p class="price">15000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card furniture">
+<img src="chair.html">
+<h3>Wooden Chair</h3>
+<p class="price">5000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Clothing -->
+<div class="card clothing">
+<img src="t shirt .html">
+<h3>T-Shirt</h3>
+<p class="price">700/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card clothing">
+<img src="jackets2.html">
+<h3>Jacket</h3>
+<p class="price">1200/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card clothing">
+<img src="jeans.html">
+<h3>Jeans</h3>
+<p class="price">1500/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card clothing">
+<img src="dress.html">
+<h3>Dress</h3>
+<p class="price">2000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Appliances -->
+<div class="card appliances">
+<img src="washing machine.html">
+<h3>Washing Machine</h3>
+<p class="price">12000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card appliances">
+<img src="refrigerator.html">
+<h3>Refrigerator</h3>
+<p class="price">15000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card appliances">
+<img src="microwave2.html">
+<h3>Microwave</h3>
+<p class="price">8000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card appliances">
+<img src="ac.html">
+<h3>Air Conditioner</h3>
+<p class="price">35000/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Stationary -->
+<div class="card stationary">
+<img src="book.html">
+<h3>Notebook</h3>
+<p class="price">120/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card stationary">
+<img src="pens.html">
+<h3>Pens</h3>
+<p class="price">80/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card stationary">
+<img src="kit.html">
+<h3>School Kit</h3>
+<p class="price">250/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card stationary">
+<img src="files.html">
+<h3>Office Supplies</h3>
+<p class="price">300/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Groceries -->
+<div class="card groceries">
+<img src="vegitables.html">
+<h3>Vegetables</h3>
+<p class="price">200/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card groceries">
+<img src="fruits.html">
+<h3>Fruits</h3>
+<p class="price">180/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card groceries">
+<img src="food.html">
+<h3>Food Pack</h3>
+<p class="price">350/-</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card groceries">
+<img src="organic.html">
+<h3>Organic Groceries</h3>
+<p class="price">400/-</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Beauty -->
+<div class="card beauty">
+<img src="makeup.html">
+<h3>Makeup Kit</h3>
+<p class="price">1600/-</p>
+<button>Add to Cart</button>
+</div>
+
+
+<div class="card beauty">
+<img src="lipstick.html">
+<h3>Lipsticks</h3>
+<p class="price">800/-</p>
+<button>Add to Cart</button>
+</div>
