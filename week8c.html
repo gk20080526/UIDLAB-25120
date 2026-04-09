@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moving & Rotating Circle</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: #8a2c2c;
+        overflow: hidden;
+    }
+
+    .circle {
+        width: 80px;
+        height: 80px;
+        background-color: #082d51;
+        border-radius: 50%;
+        position: relative;
+        animation: moveRotate 3s linear infinite;
+    }
+
+    @keyframes moveRotate {
+        0% {
+            transform: translateX(0) rotate(0deg);
+        }
+        100% {
+            transform: translateX(300px) rotate(360deg);
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="circle"></div>
+
+</body>
+</html>
