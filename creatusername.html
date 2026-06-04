@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Username Validation</title>
+ <!k.gayathri AV.SC.U4CSE25120>
+ <style>
+ body {
+ font-family: 'Poppins', sans-serif;
+ background: linear-gradient(135deg, #252b46, #483858);
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .box {
+ background: white;
+ padding: 40px;
+ width: 320px;
+ border-radius: 15px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+ text-align: center;
+ transition: 0.3s;
+ }
+ .box:hover {
+ transform: scale(1.03);
+ }
+ h2 {
+ margin-bottom: 20px;
+ color: #333;
+ }
+ input {
+ width: 100%;
+ padding: 12px;
+ border-radius: 8px;
+ border: 1px solid #ccc;
+ outline: none;
+ transition: 0.3s;
+ }
+ input:focus {
+ border-color: #2e3551;
+ box-shadow: 0 0 8px rgba(78, 88, 133, 0.5);
+ }
+ .message {
+ margin-top: 12px;
+ font-size: 14px;
+ font-weight: bold;
+ }
+ .error {
+ color: #e74c3c;
+ }
+ .valid {
+ color: #2ecc71;
+ }
+ </style> 
+ </head>
+<body>
+<div class="box">
+ <h2>Create Username</h2>
+ <input type="text" id="username" placeholder="Enter username"
+onkeyup="checkUsername()">
+ <div id="msg" class="message"></div>
+</div>
+<script>
+ function checkUsername() {
+ let user = document.getElementById("username").value;
+ let msg = document.getElementById("msg");
+ if (user.length < 5) {
+ msg.innerHTML = " Minimum 5 characters required";
+ msg.className = "message error";
+ } else {
+ msg.innerHTML = "Looks good!";
+ msg.className = "message valid";
+ }
+ }
+</script>
+</body>
+</html> 
