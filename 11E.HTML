@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <input type="text" id="name" placeholder="Enter Name"><br>
+
+        <input type="text" id="email" placeholder="Enter Email"><br>
+
+        <input type="password" id="password" placeholder="Enter Password"><br>
+
+        <button type="submit">Register</button>
+
+        <div id="message"></div>
+
+    </form>
+
+    <script>
+
+        function validateForm() {
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+
+            let message = document.getElementById("message");
+
+            // Email pattern
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            // Name validation
+            if (name === "") {
+                message.innerHTML = "Name cannot be empty";
+                message.className = "invalid";
+                return false;
+            }
+
+            // Email validation
+            if (!emailPattern.test(email)) {
+                message.innerHTML = "Enter a valid email";
+                message.className = "invalid";
+                return false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                message.innerHTML = "Password must contain at least 6 characters";
+                message.className = "invalid";
+                return false;
+            }
+
+            // Success message
+            message.innerHTML = "Registration Successful";
+            message.className = "valid";
+
+            return false;
+        }
+
+    </script>
+
+</body>
+</html>
