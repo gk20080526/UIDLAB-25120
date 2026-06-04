@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Online Admission Form</title>
+    <style>
+        /* Styles for the pop-up (Modal) */
+        #successModal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+
+    <script>
+        function showPopup(event) {
+            // Stop the page from refreshing
+            event.preventDefault(); 
+            
+            // Show the hidden modal div
+            document.getElementById("successModal").style.display = "block";
+            return false;
+        }
+
+        function closePopup() {
+            // Hide the modal and reset the form
+            document.getElementById("successModal").style.display = "none";
+            document.getElementById("admissionForm").reset();
+        }
+    </script>
+</head>
+
+<body bgcolor="#e6f2ff">
+
+    <h2 align="center">COLLEGE ONLINE ADMISSION FORM</h2>
+
+    <form id="admissionForm" onsubmit="return showPopup(event)">
+        <table border="2" align="center" cellpadding="8" cellspacing="0" width="70%" bgcolor="#ffffff">
+            
+            <tr>
+                <td colspan="2" align="center" bgcolor="#d1e0f0"><b>Student Personal Details</b></td>
+            </tr>
+
+            <tr>
+                <td><label for="fname">First Name:</label></td>
+                <td><input type="text" id="fname" name="fname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="lname">Last Name:</label></td>
+                <td><input type="text" id="lname" name="lname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="dob">Date of Birth:</label></td>
+                <td><input type="date" id="dob" name="dob" required></td>
+            </tr>
+
+            <tr>
+                <td><label>Gender:</label></td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email ID:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="phone">Mobile Number:</label></td>
+                <td><input type="tel" id="phone" name="phone" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea id="address" name="address" rows="4" cols="30"></textarea></td>
+            </tr>
+
+            <tr>
+                <td><label for="course">Course Applying For:</label></td>
+                <td>
+                    <select id="course" name="course">
+                        <option>B.Tech</option>
+                        <option>B.Sc</option>
+                        <option>B.Com</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="marks">12th Marks (%):</label></td>
+                <td><input type="number" id="marks" name="marks"></td>
+            </tr>
+
+            <tr>
+                <td><label>Hobbies:</label></td>
+                <td>
+                    <input type="checkbox" name="hobby"> Reading
+                    <input type="checkbox" name="hobby"> Sports
+                    <input type="checkbox" name="hobby"> Music
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="photo">Upload Photo:</label></td>
+                <td><input type="file" id="photo" name="photo"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit" style="cursor:pointer">
+                    <input type="reset" value="Reset" style="cursor:pointer">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <div id="successModal">
+        <div class="modal-content">
+            <h2 style="color: #4CAF50;">Success!</h2>
+            <p>Your admission form has been submitted successfully.</p>
+            <button class="close-btn" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+</bo

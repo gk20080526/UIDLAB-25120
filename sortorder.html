@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Sort Three Numbers</title>
+<!k.gayathri AV.SC.U4CSE25120.!
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+119
+ background: linear-gradient(135deg, #d1f394, #def965);
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0;
+}
+ .box {
+ background: rgb(225, 179, 179);
+ padding: 30px;
+ width: 320px;
+ border-radius: 15px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+ text-align: center;
+ }
+ input {
+ width: 90%;
+ padding: 10px;
+ margin: 10px 0;
+ border-radius: 8px;
+ border: 1px solid #ccc;
+ }
+ button {
+ padding: 10px 20px;
+ background: linear-gradient(135deg, #b2badf, #c5cdab);
+ color: white;
+ border: none;
+ border-radius: 8px;
+cursor: pointer;
+ }
+ /* Overlay */
+ .overlay {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.6);
+ }
+ /* Alert box */
+ .alertBox {
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background: #333;
+ color: white;
+ padding: 20px 30px;
+ border-radius: 12px;
+ font-size: 18px;
+ }
+ </style>
+</head>
+<body>
+<div class="box">
+ <h2>Sort 3 Numbers</h2>
+ <input type="number" id="num1" placeholder="First number"><br>
+ <input type="number" id="num2" placeholder="Second number"><br>
+ <input type="number" id="num3" placeholder="Third number"><br>
+ <button onclick="sortNumbers()">Sort</button>
+</div>
+<!-- Overlay -->
+<div id="overlay" class="overlay">
+ <div id="alertBox" class="alertBox"></div>
+</div>
+<script>
+function sortNumbers() {
+ let a = Number(document.getElementById("num1").value);
+ let b = Number(document.getElementById("num2").value);
+ let c = Number(document.getElementById("num3").value);
+ let overlay = document.getElementById("overlay");
+ let alertBox = document.getElementById("alertBox");
+ let result;
+// Sorting logic using condition
+ if (a <= b && a <= c) {
+ if (b <= c) {
+ result = a + ", " + b + ", " + c;
+ } else {
+ result = a + ", " + c + ", " + b;
+ }
+ }
+ else if (b <= a && b <= c) {
+ if (a <= c) {
+ result = b + ", " + a + ", " + c;
+ } else { 
+    result = b + ", " + c + ", " + a;
+ }
+ }
+ else {
+ if (a <= b) {
+ result = c + ", " + a + ", " + b;
+ } else {
+ result = c + ", " + b + ", " + a;
+ }
+ }
+alertBox.innerText = "Sorted order: " + result;
+overlay.style.display = "block";
+setTimeout(() => {
+ overlay.style.display = "none";
+ }, 2500);
+}
+</script>
+</body>
+</html>
