@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Number Logic Programs</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #a81c7e, #00f2fe);
+        text-align: center;
+        padding: 40px;
+        color: #333;
+    }
+
+    h1 {
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        width: 350px;
+        margin: auto;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    input {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #7d7070;
+        font-size: 16px;
+    }
+
+    .buttons button {
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        background-color: #ba3589;
+        color: rgb(211, 189, 200);
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .buttons button:hover {
+        background-color: #ab227f;
+        transform: scale(1.05);
+    }
+
+    .output {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #c9bdbd;
+        border-radius: 10px;
+        font-weight: bold;
+        min-height: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Number Logic Programs</h1>
+
+<div class="container">
+    <input type="number" id="num" placeholder="Enter a number">
+
+    <div class="buttons">
+        <button onclick="checkEven()">Even</button>
+        <button onclick="checkOdd()">Odd</button>
+        <button onclick="checkPrime()">Prime</button>
+        <button onclick="factorial()">Factorial</button>
+        <button onclick="checkArmstrong()">Armstrong</button>
+    </div>
+
+    <div class="output" id="result">Output will appear here</div>
+</div>
+
+<script>
+
+function getNumber() {
+    let num = document.getElementById("num").value;
+    if (num === "") {
+        alert("Please enter a number");
+        return null;
+    }
+    return parseInt(num);
+}
+
+// Even
+function checkEven() {
+    let num = getNumber();
+    if (num === null) return;
+
+    let result = (num % 2 === 0) ? "Even Number" : "Not an Even Number";
+    display(result);
+}
+
+// Odd
+function checkOdd() {
+    let num = getNumber();
+    if (num === null) return;
+
+    let result = (num % 2 !== 0) ? "Odd Number" : "Not an Odd Number";
+    display(result);
+}
+
+// Prime
+function checkPrime() {
+    let num = getNumber();
+    if (num === null) return;
+
+    if (num <= 1) {
+        display("Not a Prime Number");
+        return;
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            display("Not a Prime Number");
+            return;
+        }
+    }
+
+    display("Prime Number");
+}
+
+// Factorial
+function factorial() {
+    let num = getNumber();
+    if (num === null) return;
+
+    let fact = 1;
+    for (let i = 1; i <= num; i++) {
+        fact *= i;
+    }
+
+    display("Factorial: " + fact);
+}
+
+// Armstrong
+function checkArmstrong() {
+    let num = getNumber();
+    if (num === null) return;
+
+    let temp = num;
+    let sum = 0;
+    let digits = num.toString().length;
+
+    while (temp > 0) {
+        let rem = temp % 10;
+        sum += Math.pow(rem, digits);
+        temp = Math.floor(temp / 10);
+    }
+
+    if (sum === num) {
+        display("Armstrong Number");
+    } else {
+        display("Not an Armstrong Number");
+    }
+}
+
+// Display output
+function display(msg) {
+    document.getElementById("result").innerText = msg;
+}
+
+</script>
+
+</body>
+</html>
