@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Find Largest of 5 Numbers</title>
+<!k.gayathri AV.SC.U4CSE25120>
+ <style>
+ body { 
+    font-family: Arial, sans-serif;
+ background: linear-gradient(135deg, #ea9666, #eab06e);
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0;
+ }
+ .box {
+ background: white;
+ padding: 30px;
+ width: 320px;
+ border-radius: 15px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+ text-align: center;
+ }
+input {
+ width: 90%;
+ padding: 10px;
+ margin: 8px 0;
+ border-radius: 8px;
+ border: 1px solid #ccc;
+ }
+ button {
+ padding: 10px 20px;
+ background: linear-gradient(135deg, #d2e287, #cdd66e);
+ color: white;
+ border: none;
+ border-radius: 8px;
+ cursor: pointer;
+ }
+ /* Overlay */
+ .overlay {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.6);
+ }
+ /* Alert Box */
+ .alertBox {
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background: #9aeaad;
+ color: white;
+ padding: 20px 30px;
+ border-radius: 12px;
+ font-size: 18px;
+ }
+ </style>
+</head>
+<body>
+<div class="box">
+ <h2>Find Largest</h2> 
+ <input type="number" id="n1" placeholder="Number 1"><br>
+ <input type="number" id="n2" placeholder="Number 2"><br>
+ <input type="number" id="n3" placeholder="Number 3"><br>
+ <input type="number" id="n4" placeholder="Number 4"><br>
+ <input type="number" id="n5" placeholder="Number 5"><br>
+ <button onclick="findLargest()">Find</button>
+</div>
+<!-- Overlay -->
+<div id="overlay" class="overlay">
+ <div id="alertBox" class="alertBox"></div>
+</div>
+<script>
+function findLargest() {
+ let a = Number(document.getElementById("n1").value);
+ let b = Number(document.getElementById("n2").value);
+ let c = Number(document.getElementById("n3").value);
+ let d = Number(document.getElementById("n4").value);
+ let e = Number(document.getElementById("n5").value);
+ let largest;
+ // Conditional logic
+ if (a >= b && a >= c && a >= d && a >= e) {
+ largest = a;
+ }
+ else if (b >= a && b >= c && b >= d && b >= e) {
+ largest = b;
+ }
+ else if (c >= a && c >= b && c >= d && c >= e) { 
+    largest = c;
+ }
+ else if (d >= a && d >= b && d >= c && d >= e) {
+ largest = d;
+ }
+ else {
+ largest = e;
+ }
+ let overlay = document.getElementById("overlay");
+ let alertBox = document.getElementById("alertBox");
+ alertBox.innerText = "Largest number is: " + largest;
+overlay.style.display = "block";
+setTimeout(() => {
+ overlay.style.display = "none";
+ }, 2500);
+}
+</script>
+</body>
+</html>
